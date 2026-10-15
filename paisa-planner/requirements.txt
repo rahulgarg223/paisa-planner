@@ -1,4 +1,0 @@
-streamlit>=1.50
-pandas>=2.0
-plotly>=5.20
-google-genai>=1.0
