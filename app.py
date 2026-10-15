@@ -117,7 +117,7 @@ def rule_chart(rows: list[dict]) -> go.Figure:
     colors = [ACCENT, SAFFRON, GOOD]
     fig = go.Figure()
     fig.add_bar(y=names, x=[r["actual"] * 100 for r in rows], orientation="h", marker_color=colors,
-                text=[f"{r['actual'] * 100:.0f}%" for r in rows], textposition="outside",
+                                   text=[f"{r['actual'] * 100:.0f}%" for r in rows], textposition="outside", cliponaxis=False,
                 hovertemplate="%{y}: %{x:.1f}% of income<extra></extra>", name="Actual")
     fig.add_scatter(y=names, x=[r["target"] * 100 for r in rows], mode="markers",
                     marker=dict(symbol="line-ns", size=26, line=dict(width=3, color="#555")),
@@ -131,10 +131,11 @@ def rule_chart(rows: list[dict]) -> go.Figure:
 def category_chart(totals: dict[str, float]) -> go.Figure:
     cats, vals = list(totals), list(totals.values())
     fig = go.Figure(go.Bar(y=cats, x=vals, orientation="h", marker_color=ACCENT,
-                           text=[fin.inr(v) for v in vals], textposition="outside",
+                           text=[fin.inr(v) for v in vals], textposition="outside", cliponaxis=False,
                            hovertemplate="%{y}: ₹%{x:,.0f}<extra></extra>"))
     fig.update_layout(height=max(180, 34 * len(cats) + 40), margin=dict(l=0, r=60, t=10, b=10),
-                      yaxis=dict(autorange="reversed"), xaxis=dict(showticklabels=False, showgrid=False))
+                      yaxis=dict(autorange="reversed"),
+                      xaxis=dict(showticklabels=False, showgrid=False, range=[0, max(vals) * 1.25]))
     return fig
 
 
