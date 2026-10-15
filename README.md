@@ -4,8 +4,9 @@ A monthly budget planner for India that turns your surplus into an investment pl
 
 ![tests](https://github.com/rahulgarg223/paisa-planner/actions/workflows/tests.yml/badge.svg)
 
-<!-- Add a screenshot after your first run: save it as docs/screenshot.png -->
-<!-- ![Paisa Planner](docs/screenshot.png) -->
+   **Live demo:** https://paisa-planner-rr8pnevudabgrhq2flgbkq.streamlit.app/
+
+   ![Paisa Planner](screenshot.png)
 
 ## Features
 
